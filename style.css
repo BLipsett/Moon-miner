@@ -1,0 +1,12 @@
+.background {
+  background-image: url(assets/space.jpg);
+  background-size: cover;
+}
+
+.moon-boi {
+  width: 100%;
+}
+
+.unable {
+  display: none;
+}
