@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Moon-Miner</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -34,8 +34,8 @@
         outline-offset: -3px;
       }
     </style>
-    <header><h1>moon miner</h1></header>
-    <main class="container-fluid background text-light">
+    <header><h1>moon miner</h1><button id="start-button" onclick="startInterval()"">START GAME</button></header>
+    <main class= "container-fluid background text-light" >
       <div class="row d-flex justify-content-center">
         <div class="col-lg-3">
           <h2 class="cheese-count">
@@ -51,10 +51,22 @@
             onclick="mineCheese()"
           />
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 flex-column">
           <h2 class="oxygen-level">
             Oxygen-level:<span id="oxygen-level"></span>
           </h2>
+          <div class="row">
+            <div class="col-12">
+              <p>cheese to oxygen machine</p>
+            <img
+              id="cheese-machine"
+              class=""
+              onclick="generateOxygen()"
+              src="https://place-hold.it/100x100"
+              alt=""
+            />
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-12">
