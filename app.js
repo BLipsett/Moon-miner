@@ -120,6 +120,7 @@ function buyOxygenTank() {
 
 function buyCheeseDrill() {
   user.drill++;
+  user.helperEffectiveness += 10;
   user.cheeseCount -= upgrades.cheeseDrillCost;
   upgrades.cheeseDrillCost += Math.floor(upgrades.cheeseDrillCost * 0.25);
   drawBoard();
@@ -141,10 +142,8 @@ function buyHelper() {
 }
 
 function alienHelp() {
-  if (user.helper >= 1) {
-    user.cheeseCount += user.helperEffectiveness;
-    drawBoard();
-  }
+  user.cheeseCount += user.helperEffectiveness;
+  drawBoard();
 }
 
 function oxygenBar() {
