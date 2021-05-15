@@ -5,25 +5,30 @@ let gametTime = 4000;
 let user = {
   smasher: 0,
   helper: 0,
-  tank: 0,
+  tank: 100,
   drill: 0,
   cheeseCount: 0,
+  oxygenCanister: 1,
   oxygenLevel: 100,
+  effectiveness: 1,
+  helperEffectiveness: 0,
 };
 
 let upgrades = {
   hammerCost: 10,
   alienCost: 20,
-  cheeseDrill: 50,
-  oxygenTank: 100,
+  cheeseDrillCost: 50,
+  oxygenTankCost: 100,
 };
 
 function mineCheese() {
-  if (user.smasher == 0) {
-    user.cheeseCount++;
-  } else if (user.smasher >= 1) {
-    user.cheeseCount += 5;
-  }
+  //   if (user.smasher == 0) {
+  //     user.cheeseCount++;
+  //   } else if (user.smasher >= 1) {
+  //     user.cheeseCount += 5;
+  //   }
+
+  user.cheeseCount += user.effectiveness;
   console.log("user cheese amount", user.cheeseCount);
   drawBoard();
 }
@@ -50,6 +55,17 @@ function drawBoard() {
   } else {
     document.getElementById("helper").classList.remove("d-none");
   }
+  if (user.cheeseCount > upgrades.oxygenTankCost) {
+    document.getElementById("buy-oxygen-tank").classList.remove("d-none");
+  } else {
+    document.getElementById("buy-oxygen-tank").classList.add("d-none");
+  }
+
+  if (user.cheeseCount > upgrades.cheeseDrillCost) {
+    document.getElementById("cheese-drill").classList.remove("d-none");
+  } else {
+    document.getElementById("cheese-drill").classList.add("d-none");
+  }
 
   document.getElementById("oxygen-level").innerText = user.oxygenLevel;
   //console.log(user);
@@ -65,16 +81,27 @@ function drawBoard() {
   drawUpgrades();
 }
 
+function getTotal() {
+  let resourceTotal =
+    user.smasher + user.helper + user.drill + user.oxygenCanister;
+  return resourceTotal;
+}
+
 function drawUpgrades() {
   let hammerCostElem = document.getElementById("hammer-cost");
   let alienCostElem = document.getElementById("alien-cost");
+  let oxygenTankElem = document.getElementById("tank-cost");
+  let cheeseDrillElem = document.getElementById("drill-cost");
 
   alienCostElem.innerText = upgrades.alienCost;
   hammerCostElem.innerText = upgrades.hammerCost;
+  oxygenTankElem.innerText = upgrades.oxygenTankCost;
+  cheeseDrillElem.innerText = upgrades.cheeseDrillCost;
 }
 
 function buyMoonHammer() {
   user.smasher++;
+  user.effectiveness += 3;
   user.cheeseCount -= upgrades.hammerCost;
   upgrades.hammerCost += 20;
   if (user.smasher == 1) {
@@ -83,14 +110,30 @@ function buyMoonHammer() {
   drawBoard();
 }
 
+function buyOxygenTank() {
+  user.oxygenCanister++;
+  user.tank += Math.floor(user.tank * 0.25);
+  user.oxygenLevel = user.tank;
+  upgrades.oxygenTankCost *= 4;
+  drawBoard();
+}
+
+function buyCheeseDrill() {
+  user.drill++;
+  user.cheeseCount -= upgrades.cheeseDrillCost;
+  upgrades.cheeseDrillCost += Math.floor(upgrades.cheeseDrillCost * 0.25);
+  drawBoard();
+}
+
 function generateOxygen() {
   user.oxygenLevel += 4;
-  user.cheeseCount -= Math.floor(user.cheeseCount / 2);
+  user.cheeseCount -= 100;
   drawBoard();
 }
 
 function buyHelper() {
   user.helper++;
+  user.helperEffectiveness += 2;
   user.cheeseCount -= upgrades.alienCost;
   upgrades.alienCost += 100;
 
@@ -99,13 +142,18 @@ function buyHelper() {
 
 function alienHelp() {
   if (user.helper >= 1) {
-    user.cheeseCount += user.helper * 2;
+    user.cheeseCount += user.helperEffectiveness;
     drawBoard();
   }
 }
 
 function oxygenBar() {
-  user.oxygenLevel -= 2;
+  let total = getTotal();
+  if (total < 4) {
+    user.oxygenLevel -= 2;
+  } else if (total >= 5) {
+    user.oxygenLevel -= 3;
+  }
   document.getElementById("oxygen-level").innerText = user.oxygenLevel;
 }
 
