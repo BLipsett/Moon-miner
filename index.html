@@ -37,10 +37,27 @@
     <header><h1>moon miner</h1><button id="start-button" onclick="startInterval()"">START GAME</button></header>
     <main class= "container-fluid background text-light" >
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-3">
-          <h2 class="cheese-count">
-            Cheese Dollars:<span id="cheese-money"></span>
-          </h2>
+        <div class="col-lg-3 d-flex">
+          <div class="cheese-section d-flex flex-column justify-content-between">
+            <h2 class="cheese-count">
+              Cheese Dollars:<span id="cheese-money"></span>
+            </h2>
+            <div class="resource-section">
+              <h4 class="hammer">
+                Moon Hammers: <span id="hammer-display"></span>
+              </h4>
+              <h4 class="helper">
+                Alien Helpers: <span id="helper-display"></span>
+              </h4>
+              <h4 class="oxygen-tank">
+                Oxygen Tank Size: <span id="tank-display"></span>
+              </h4>
+              <h4 class="moon-drill">
+                Moon drills: <span id="drill-display"></span>
+              </h4>
+            </div>
+          </div>
+          
         </div>
         <div class="col-lg-6">
           <img
@@ -51,12 +68,12 @@
             onclick="mineCheese()"
           />
         </div>
-        <div class="col-lg-3 flex-column">
+        <div class="col-lg-3 d-flex flex-column justify-content-between">
           <h2 class="oxygen-level">
             Oxygen-level:<span id="oxygen-level"></span>
           </h2>
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
               <p>cheese to oxygen machine</p>
             <img
               id="cheese-machine"
@@ -74,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row d-flex text-center">
         <div class="col-lg-3">
           <h6>Moon Hammer: <span id="hammer-cost"></span></h6>
           <img

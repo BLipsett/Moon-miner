@@ -29,6 +29,16 @@ function mineCheese() {
 }
 
 function drawBoard() {
+  let hammerDisplay = document.getElementById("hammer-display");
+  let helperDisplay = document.getElementById("helper-display");
+  let tankDisplay = document.getElementById("tank-display");
+  let drillDisplay = document.getElementById("drill-display");
+
+  hammerDisplay.innerText = user.smasher;
+  helperDisplay.innerText = user.helper;
+  tankDisplay.innerText = user.tank;
+  drillDisplay.innerText = user.drill;
+
   document.getElementById("cheese-money").innerText = user.cheeseCount;
   if (user.cheeseCount < upgrades.hammerCost) {
     document.getElementById("moon-hammer").classList.add("d-none");
