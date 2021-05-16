@@ -8,7 +8,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -35,7 +39,7 @@
       }
     </style>
     <header>
-      <h1>moon miner</h1>
+      <h1 class="header">moon miner</h1>
       <button
         class="start-game"
         id="start-button"
@@ -44,29 +48,34 @@
         START GAME
       </button>
     </header>
-    <main class="container-fluid background text-light">
+    <main class="container-fluid text-light">
       <div id="game-block" class="container-fluid game-view game-click">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 d-flex">
             <div
               class="cheese-section d-flex flex-column justify-content-between"
             >
-              <h2 class="cheese-count">
-                Cheese Dollars:<span id="cheese-money"></span>
-              </h2>
-              <div class="resource-section">
-                <h4 class="hammer">
-                  Moon Hammers: <span id="hammer-display"></span>
-                </h4>
-                <h4 class="helper">
-                  Alien Helpers: <span id="helper-display"></span>
-                </h4>
-                <h4 class="oxygen-tank">
-                  Oxygen Tank Size: <span id="tank-display"></span>
-                </h4>
-                <h4 class="moon-drill">
-                  Moon drills: <span id="drill-display"></span>
-                </h4>
+              <div class="d-flex">
+                <h2 class="cheese-count">Cheese Collected:</h2>
+                <span id="cheese-money"></span>
+              </div>
+              <div class="resource-section d-flex flex-column">
+                <div class="d-flex justify-content-between">
+                  <h4 class="hammer">Moon Hammers:</h4>
+                  <span id="hammer-display"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <h4 class="helper">Alien Helpers:</h4>
+                  <span id="helper-display"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <h4 class="oxygen-tank">Oxygen Tank Size:</h4>
+                  <span id="tank-display"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <h4 class="moon-drill">Moon drills:</h4>
+                  <span id="drill-display"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -113,8 +122,8 @@
           </div>
         </div>
         <div class="row d-flex text-center">
-          <div class="col-lg-3">
-            <h6>Moon Hammer: <span id="hammer-cost"></span></h6>
+          <div class="col-lg-3 up-box">
+            <h6>Moon Laser: <span id="hammer-cost"></span></h6>
             <img
               id="moon-hammer"
               class=""
@@ -123,7 +132,7 @@
               alt=""
             />
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 up-box">
             <h6>Alien Helper:<span id="alien-cost"></span></h6>
             <img
               id="helper"
@@ -133,7 +142,7 @@
               alt=""
             />
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 up-box">
             <h6>Oxygen-Tank: <span id="tank-cost"></span></h6>
             <img
               id="buy-oxygen-tank"
@@ -143,7 +152,7 @@
               onclick="buyOxygenTank()"
             />
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 up-box">
             <h6>Cheese Drill: <span id="drill-cost"></span></h6>
             <img
               class=""

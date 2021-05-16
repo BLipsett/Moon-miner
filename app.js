@@ -191,7 +191,7 @@ function clickEffect(event) {
   let template = "";
 
   d.innerHTML = /*html*/ `
-  <div class="clickEffect" style="top:${yPx}px; left:${xPx}px"><p>+${user.effectiveness}</div>;`;
+  <div class="clickEffect" style="top:${yPx}px; left:${xPx}px"><p>+${user.effectiveness}</div>`;
 
   console.log("animation at", xPx + "and" + yPx);
   //d.innerHTML = "";
@@ -212,8 +212,10 @@ function buyUpgradeEffect(event, upgrade) {
   //d.innerHTML = "";
 }
 
-function enableGame() {
-  document.getElementById("game-block").classList.remove("game-click");
-}
+// note turn back on after debugging
+
+// function enableGame() {
+//   document.getElementById("game-block").classList.remove("game-click");
+// }
 
 drawBoard();
