@@ -1,12 +1,50 @@
 .background {
   background-image: url(assets/space.jpg);
   background-size: cover;
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+}
+
+.game-view {
+  max-height: 100%;
+}
+
+.tooPoor {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 25%;
 }
 
 .moon-boi {
   width: 100%;
+  max-height: 100%;
 }
 
 .unable {
   display: none;
+}
+
+.game-update {
+  padding: 10px;
+  border: solid whitesmoke 2px;
+  border-radius: 5px;
+}
+
+.clickEffect {
+  position: fixed;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: yellow;
+  animation-name: example;
+  animation-duration: 4s;
+  animation: clickEffect 1s 1;
+  -webkit-animation: clickEffect 1s 1;
+}
+@keyframes clickEffect {
+  100% {
+    top: 200px;
+    left: 200px;
+    font-size: 50px;
+  }
 }

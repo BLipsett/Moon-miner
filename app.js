@@ -21,14 +21,9 @@ let upgrades = {
   oxygenTankCost: 100,
 };
 
-function mineCheese() {
-  //   if (user.smasher == 0) {
-  //     user.cheeseCount++;
-  //   } else if (user.smasher >= 1) {
-  //     user.cheeseCount += 5;
-  //   }
-
+function mineCheese(event) {
   user.cheeseCount += user.effectiveness;
+
   console.log("user cheese amount", user.cheeseCount);
   drawBoard();
 }
@@ -46,25 +41,31 @@ function drawBoard() {
 
   document.getElementById("cheese-money").innerText = user.cheeseCount;
   if (user.cheeseCount < upgrades.hammerCost) {
-    document.getElementById("moon-hammer").classList.add("d-none");
+    document.getElementById("moon-hammer").classList.add("tooPoor");
   } else {
-    document.getElementById("moon-hammer").classList.remove("d-none");
+    document.getElementById("moon-hammer").classList.remove("tooPoor");
   }
   if (user.cheeseCount < upgrades.alienCost) {
-    document.getElementById("helper").classList.add("d-none");
+    document.getElementById("helper").classList.add("tooPoor");
   } else {
-    document.getElementById("helper").classList.remove("d-none");
+    document.getElementById("helper").classList.remove("tooPoor");
   }
-  if (user.cheeseCount > upgrades.oxygenTankCost) {
-    document.getElementById("buy-oxygen-tank").classList.remove("d-none");
+  if (user.cheeseCount < upgrades.oxygenTankCost) {
+    document.getElementById("buy-oxygen-tank").classList.add("tooPoor");
   } else {
-    document.getElementById("buy-oxygen-tank").classList.add("d-none");
+    document.getElementById("buy-oxygen-tank").classList.remove("tooPoor");
   }
 
-  if (user.cheeseCount > upgrades.cheeseDrillCost) {
-    document.getElementById("cheese-drill").classList.remove("d-none");
+  if (user.cheeseCount < upgrades.cheeseDrillCost) {
+    document.getElementById("cheese-drill").classList.add("tooPoor");
   } else {
-    document.getElementById("cheese-drill").classList.add("d-none");
+    document.getElementById("cheese-drill").classList.remove("tooPoor");
+  }
+
+  if (user.cheeseCount < 100) {
+    document.getElementById("cheese-machine").classList.add("tooPoor");
+  } else {
+    document.getElementById("cheese-machine").classList.remove("tooPoor");
   }
 
   document.getElementById("oxygen-level").innerText = user.oxygenLevel;
@@ -152,6 +153,8 @@ function oxygenBar() {
     user.oxygenLevel -= 2;
   } else if (total >= 5) {
     user.oxygenLevel -= 3;
+  } else if (total >= 10) {
+    user.oxygenLevel -= 8;
   }
   document.getElementById("oxygen-level").innerText = user.oxygenLevel;
 }
@@ -165,7 +168,7 @@ function startInterval() {
     oxygenBar();
     alienHelp();
 
-    if (user.oxygenLevel == 0) {
+    if (user.oxygenLevel <= 0) {
       alert("you lose but youre still great!");
       location.reload();
     }
@@ -179,6 +182,34 @@ function startInterval() {
 
 function gameOver() {
   alert("Game Over");
+}
+
+function clickEffect(event) {
+  let d = document.getElementById("point-click");
+  let xPx = event.clientX - 50;
+  let yPx = event.clientY - 30;
+  let template = "";
+
+  d.innerHTML = /*html*/ `
+  <div class="clickEffect" style="top:${yPx}px; left:${xPx}px"><p>+${user.effectiveness}</div>;`;
+
+  console.log("animation at", xPx + "and" + yPx);
+  //d.innerHTML = "";
+}
+
+function buyUpgradeEffect(event, upgrade) {
+  console.log(upgrades.upgrade);
+
+  let d = document.getElementById("point-click");
+  let xPx = event.clientX - 50;
+  let yPx = event.clientY - 30;
+  let template = "";
+
+  //   d.innerHTML = /*html*/ `
+  //   <div class="clickEffect" style="top:${yPx}px; left:${xPx}px"><p>+${user.effectiveness}</div>;`;
+
+  //   console.log("animation at", xPx + "and" + yPx);
+  //d.innerHTML = "";
 }
 
 drawBoard();

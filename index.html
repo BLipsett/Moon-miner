@@ -34,88 +34,117 @@
         outline-offset: -3px;
       }
     </style>
-    <header><h1>moon miner</h1><button id="start-button" onclick="startInterval()"">START GAME</button></header>
-    <main class= "container-fluid background text-light" >
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-3 d-flex">
-          <div class="cheese-section d-flex flex-column justify-content-between">
-            <h2 class="cheese-count">
-              Cheese Dollars:<span id="cheese-money"></span>
-            </h2>
-            <div class="resource-section">
-              <h4 class="hammer">
-                Moon Hammers: <span id="hammer-display"></span>
-              </h4>
-              <h4 class="helper">
-                Alien Helpers: <span id="helper-display"></span>
-              </h4>
-              <h4 class="oxygen-tank">
-                Oxygen Tank Size: <span id="tank-display"></span>
-              </h4>
-              <h4 class="moon-drill">
-                Moon drills: <span id="drill-display"></span>
-              </h4>
+    <main class="container-fluid background text-light">
+      <div class="container-fluid game-view">
+        <!-- <header>
+          <h1>moon miner</h1>
+          <button id="start-button" onclick="startInterval()">
+            START GAME
+          </button>
+        </header> -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-3 d-flex">
+            <div
+              class="cheese-section d-flex flex-column justify-content-between"
+            >
+              <h2 class="cheese-count">
+                Cheese Dollars:<span id="cheese-money"></span>
+              </h2>
+              <div class="resource-section">
+                <h4 class="hammer">
+                  Moon Hammers: <span id="hammer-display"></span>
+                </h4>
+                <h4 class="helper">
+                  Alien Helpers: <span id="helper-display"></span>
+                </h4>
+                <h4 class="oxygen-tank">
+                  Oxygen Tank Size: <span id="tank-display"></span>
+                </h4>
+                <h4 class="moon-drill">
+                  Moon drills: <span id="drill-display"></span>
+                </h4>
+              </div>
             </div>
           </div>
-          
-        </div>
-        <div class="col-lg-6">
-          <img
-            id="moonClick"
-            class="moon-boi"
-            src="assets/Moon.png"
-            alt="moon boi"
-            onclick="mineCheese()"
-          />
-        </div>
-        <div class="col-lg-3 d-flex flex-column justify-content-between">
-          <h2 class="oxygen-level">
-            Oxygen-level:<span id="oxygen-level"></span>
-          </h2>
+          <div class="col-lg-6 d-flex flex-column text-center">
+            <div class="game-update">Game update area</div>
+            <div class="row">
+              <div class="col-12">
+                <div id="point-click"></div>
+                <img
+                  id="moonClick"
+                  class="moon-boi"
+                  src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/512/moon-full-moon-icon.png"
+                  alt="moon boi"
+                  onclick="mineCheese(), clickEffect(event)"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex flex-column justify-content-between">
+            <h2 class="oxygen-level">
+              Oxygen-level:<span id="oxygen-level"></span>
+            </h2>
+            <div class="row">
+              <div class="col-12 text-center">
+                <p>cheese to oxygen machine</p>
+                <img
+                  id="cheese-machine"
+                  class=""
+                  onclick="generateOxygen(), buyUpgradeEffect(event, 'oxygenTankCost')"
+                  src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/sputnik-2-icon.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
           <div class="row">
-            <div class="col-12 text-center">
-              <p>cheese to oxygen machine</p>
+            <div class="col-12">
+              <h2>Upgrade with your cheese</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex text-center">
+          <div class="col-lg-3">
+            <h6>Moon Hammer: <span id="hammer-cost"></span></h6>
             <img
-              id="cheese-machine"
+              id="moon-hammer"
               class=""
-              onclick="generateOxygen()"
-              src="https://place-hold.it/100x100"
+              onclick="buyMoonHammer()"
+              src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/laser-gun-icon.png"
               alt=""
             />
-            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <h2>Upgrade with your cheese</h2>
+          <div class="col-lg-3">
+            <h6>Alien Helper:<span id="alien-cost"></span></h6>
+            <img
+              id="helper"
+              class=""
+              onclick="buyHelper()"
+              src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/alien-4-icon.png"
+              alt=""
+            />
           </div>
-        </div>
-      </div>
-      <div class="row d-flex text-center">
-        <div class="col-lg-3">
-          <h6>Moon Hammer: <span id="hammer-cost"></span></h6>
-          <img
-            id="moon-hammer"
-            class=""
-            onclick="buyMoonHammer()"
-            src="https://place-hold.it/100x100"
-            alt=""
-          />
-        </div>
-        <div class="col-lg-3">
-          <h6>Alien Helper:<span id="alien-cost"></span></h6>
-          <img id="helper" class=""
-          onclick="buyHelper()" src="https://place-hold.it/100x100" alt="" />
-        </div>
-        <div class="col-lg-3">
-          <h6>Oxygen-Tank: <span id="tank-cost"></span></h6>
-          <img id="buy-oxygen-tank" class="d-none" src="https://place-hold.it/100x100" alt="" 
-          onclick="buyOxygenTank()"/>
-        </div>
-        <div class="col-lg-3">
-          <h6>Cheese Drill: <span id="drill-cost"></span></h6>
-          <img class="d-none" id="cheese-drill" src="https://place-hold.it/100x100" alt="" 
-          onclick="buyCheeseDrill()"/>
+          <div class="col-lg-3">
+            <h6>Oxygen-Tank: <span id="tank-cost"></span></h6>
+            <img
+              id="buy-oxygen-tank"
+              class=""
+              src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/space-capsule-icon.png"
+              alt=""
+              onclick="buyOxygenTank()"
+            />
+          </div>
+          <div class="col-lg-3">
+            <h6>Cheese Drill: <span id="drill-cost"></span></h6>
+            <img
+              class=""
+              id="cheese-drill"
+              src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/space-rover-2-icon.png"
+              alt=""
+              onclick="buyCheeseDrill()"
+            />
+          </div>
         </div>
       </div>
     </main>
