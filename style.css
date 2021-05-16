@@ -16,6 +16,11 @@
   opacity: 25%;
 }
 
+.game-click {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .moon-boi {
   width: 100%;
   max-height: 100%;

@@ -212,4 +212,8 @@ function buyUpgradeEffect(event, upgrade) {
   //d.innerHTML = "";
 }
 
+function enableGame() {
+  document.getElementById("game-block").classList.remove("game-click");
+}
+
 drawBoard();

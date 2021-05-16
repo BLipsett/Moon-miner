@@ -34,14 +34,18 @@
         outline-offset: -3px;
       }
     </style>
+    <header>
+      <h1>moon miner</h1>
+      <button
+        class="start-game"
+        id="start-button"
+        onclick="startInterval(), enableGame()"
+      >
+        START GAME
+      </button>
+    </header>
     <main class="container-fluid background text-light">
-      <div class="container-fluid game-view">
-        <!-- <header>
-          <h1>moon miner</h1>
-          <button id="start-button" onclick="startInterval()">
-            START GAME
-          </button>
-        </header> -->
+      <div id="game-block" class="container-fluid game-view game-click">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 d-flex">
             <div
@@ -67,7 +71,11 @@
             </div>
           </div>
           <div class="col-lg-6 d-flex flex-column text-center">
-            <div class="game-update">Game update area</div>
+            <div class="row">
+              <div class="col-12">
+                <div class="game-update">Game update area</div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-12">
                 <div id="point-click"></div>
