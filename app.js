@@ -151,7 +151,7 @@ function oxygenBar() {
   let total = getTotal();
   if (total < 4) {
     user.oxygenLevel -= 2;
-  } else if (total >= 5) {
+  } else if (total >= 4 && total < 10) {
     user.oxygenLevel -= 3;
   } else if (total >= 10) {
     user.oxygenLevel -= 8;
@@ -177,7 +177,6 @@ function startInterval() {
 
 function startGame() {
   setTimeout(gameOver, gametTime);
-  oxygen();
 }
 
 function gameOver() {
@@ -217,5 +216,55 @@ function buyUpgradeEffect(event, upgrade) {
 function enableGame() {
   document.getElementById("game-block").classList.remove("game-click");
 }
+
+function instructionBox() {
+  let instElem = document.getElementById("instruction");
+
+  instElem.innerHTML = /*html*/ `
+  <div class="container-fluid" >
+  <div class="row">
+  <div class="col-lg-12 d-flex justify-content-center p-3 m-3">
+    <div id="instruction-prompt" class="instruction-box text-left">
+        
+        <p>Thank you for assisting the great cheese mining operation of 3056</p>
+        <br />
+        <h5>GAME Instructions</h5>
+        <ul>
+          <li>
+            Once you begin play your oxygen usage will automatically start.
+          </li>
+          <li>Click the moon to mine it for its cheese.</li>
+          <li>
+            Once you have enough cheese pieces collected you can upgrade your
+            cheese for more resources to get more cheese per click.
+          </li>
+          <li>
+            The laser will you give you more cheese per click and the oxygen
+            tank will increase your capacity.
+          </li>
+          <li>
+            You may elect to hire alien helpers or purchase cheese drills to
+            automatically mine cheddar for you while you like photos of dogs on
+            instagram.
+          </li>
+          <li>
+            Don't forget to use the "cheese to oxygen converter" to keep your
+            oxygen levels up and keep the game going.
+          </li>
+        </ul>
+        <button onclick=clearInstruction()>Ready to play</button>
+      </div>
+      </div>
+      </div>
+      </div>
+    `;
+}
+
+function clearInstruction() {
+  document.getElementById("instruction").innerHTML = "";
+  document.getElementById("start-button").classList.remove("d-none");
+}
+
+instructionBox();
 
 drawBoard();

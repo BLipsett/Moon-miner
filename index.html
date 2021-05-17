@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="debug">
-    <!-- <style>
+    <style>
       body.debug .container,
       body.debug .container-fluid {
         outline: 2px double blue;
@@ -37,11 +37,12 @@
         outline: 2px dotted forestgreen;
         outline-offset: -3px;
       }
-    </style> -->
+    </style>
     <header>
+      <div id="instruction"></div>
       <h1 class="header">moon miner</h1>
       <button
-        class="start-game"
+        class="start-game d-none"
         id="start-button"
         onclick="startInterval(), enableGame()"
       >
@@ -59,7 +60,10 @@
               class="cheese-section d-flex flex-column justify-content-between"
             >
               <div class="d-flex align-items-center">
-                <h2 class="cheese-count">Cheese Collected:</h2>
+                <h2 class="cheese-count">
+                  Cheese<br />
+                  Collected:
+                </h2>
                 <span id="cheese-money"></span>
               </div>
               <div class="resource-section d-flex flex-column">
@@ -106,7 +110,7 @@
               Oxygen-level:<span id="oxygen-level"></span>
             </h2>
             <div class="row">
-              <div class="col-12 text-center">
+              <div class="col-12 text-center converter">
                 <p>cheese to oxygen machine</p>
                 <img
                   id="cheese-machine"
