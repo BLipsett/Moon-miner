@@ -169,6 +169,7 @@ function startInterval() {
     alienHelp();
 
     if (user.oxygenLevel <= 0) {
+      clearInterval(countdown);
       alert("you lose but youre still great!");
       location.reload();
     }
