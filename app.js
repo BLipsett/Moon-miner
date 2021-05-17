@@ -175,10 +175,10 @@ function startInterval() {
   }, 1000);
 }
 
-// function startGame() {
-//   setTimeout(gameOver, gametTime);
-//   oxygen();
-// }
+function startGame() {
+  setTimeout(gameOver, gametTime);
+  oxygen();
+}
 
 function gameOver() {
   alert("Game Over");
@@ -212,10 +212,10 @@ function buyUpgradeEffect(event, upgrade) {
   //d.innerHTML = "";
 }
 
-// note turn back on after debugging
+// note turn back on after debugging!!!!!!!!
 
-// function enableGame() {
-//   document.getElementById("game-block").classList.remove("game-click");
-// }
+function enableGame() {
+  document.getElementById("game-block").classList.remove("game-click");
+}
 
 drawBoard();

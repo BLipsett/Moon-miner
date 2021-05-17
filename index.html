@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="debug">
-    <style>
+    <!-- <style>
       body.debug .container,
       body.debug .container-fluid {
         outline: 2px double blue;
@@ -37,7 +37,7 @@
         outline: 2px dotted forestgreen;
         outline-offset: -3px;
       }
-    </style>
+    </style> -->
     <header>
       <h1 class="header">moon miner</h1>
       <button
@@ -49,30 +49,33 @@
       </button>
     </header>
     <main class="container-fluid text-light">
-      <div id="game-block" class="container-fluid game-view game-click">
+      <div
+        id="game-block"
+        class="container-fluid game-view game-click main-game"
+      >
         <div class="row d-flex justify-content-center">
           <div class="col-lg-3 d-flex">
             <div
               class="cheese-section d-flex flex-column justify-content-between"
             >
-              <div class="d-flex">
+              <div class="d-flex align-items-center">
                 <h2 class="cheese-count">Cheese Collected:</h2>
                 <span id="cheese-money"></span>
               </div>
               <div class="resource-section d-flex flex-column">
-                <div class="d-flex justify-content-between">
-                  <h4 class="hammer">Moon Hammers:</h4>
+                <div class="d-flex rb-1 justify-content-between">
+                  <h4 class="hammer">Moon Lasers:</h4>
                   <span id="hammer-display"></span>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex rb-1 justify-content-between">
                   <h4 class="helper">Alien Helpers:</h4>
                   <span id="helper-display"></span>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex rb-1 justify-content-between">
                   <h4 class="oxygen-tank">Oxygen Tank Size:</h4>
                   <span id="tank-display"></span>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex rb-1 justify-content-between">
                   <h4 class="moon-drill">Moon drills:</h4>
                   <span id="drill-display"></span>
                 </div>

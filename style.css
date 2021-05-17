@@ -27,16 +27,30 @@ header {
   color: #ec35e3;
 }
 
+.rb-1 {
+  align-items: center;
+  border-bottom: aqua solid 2px;
+  padding: 0.5rem;
+}
+
+.main-game {
+  color: yellow;
+}
+.main-game span {
+  color: #ec35e3;
+  font-size: 2rem;
+}
+
 .tooPoor {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 25%;
 }
 
-/* .game-click {
+.game-click {
   cursor: not-allowed;
   pointer-events: none;
-} */
+}
 
 .moon-boi {
   max-width: 100%;
