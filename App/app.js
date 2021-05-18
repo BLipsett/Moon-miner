@@ -1,3 +1,5 @@
+import Astronaut from "./models/Astronaut.js";
+
 //let cheeseCount = 0;
 // let oxygenLevel = 100;
 let gametTime = 4000;
