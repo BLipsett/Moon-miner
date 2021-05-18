@@ -1,7 +1,11 @@
-import Astronaut from "./models/Astronaut.js";
+// NOTE -- this will be where MVC enters in the future once im a smart boi
 
+// import Astronaut from "./models/Astronaut.js";
+// let player1 = new Astronaut("Jeff");
 //let cheeseCount = 0;
 // let oxygenLevel = 100;
+// console.log(player1);
+
 let gametTime = 4000;
 
 let user = {

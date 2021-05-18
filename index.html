@@ -55,7 +55,7 @@
         class="container-fluid game-view game-click main-game"
       >
         <div class="row d-flex justify-content-center">
-          <div class="col-lg-3 d-flex">
+          <div class="col-lg-3 col-sm-4 d-flex">
             <div
               class="cheese-section d-flex flex-column justify-content-between"
             >
@@ -86,7 +86,26 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 d-flex flex-column text-center">
+          <div
+            class="col-lg-3 col-sm-4 d-flex flex-column justify-content-between"
+          >
+            <h2 class="oxygen-level">
+              Oxygen-level:<span id="oxygen-level"></span>
+            </h2>
+            <div class="row">
+              <div class="col-12 text-center converter">
+                <p>cheese to oxygen machine</p>
+                <img
+                  id="cheese-machine"
+                  class=""
+                  onclick="generateOxygen(), buyUpgradeEffect(event, 'oxygenTankCost')"
+                  src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/sputnik-2-icon.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-4 d-flex flex-column text-center">
             <div class="row">
               <div class="col-12">
                 <div class="game-update">Game update area</div>
@@ -101,23 +120,6 @@
                   src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/512/moon-full-moon-icon.png"
                   alt="moon boi"
                   onclick="mineCheese(), clickEffect(event)"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 d-flex flex-column justify-content-between">
-            <h2 class="oxygen-level">
-              Oxygen-level:<span id="oxygen-level"></span>
-            </h2>
-            <div class="row">
-              <div class="col-12 text-center converter">
-                <p>cheese to oxygen machine</p>
-                <img
-                  id="cheese-machine"
-                  class=""
-                  onclick="generateOxygen(), buyUpgradeEffect(event, 'oxygenTankCost')"
-                  src="https://icons.iconarchive.com/icons/goodstuff-no-nonsense/free-space/128/sputnik-2-icon.png"
-                  alt=""
                 />
               </div>
             </div>
@@ -176,7 +178,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="app.js" type="module"></script>
+    <script src="/App/main.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
